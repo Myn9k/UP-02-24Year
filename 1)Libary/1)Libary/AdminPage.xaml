@@ -10,11 +10,11 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
         <StackPanel>
-            <ComboBox x:Name="ReadIdBox" Style="{StaticResource MaterialDesignComboBox}" Margin="10 0 0 0"/>
-            <ComboBox x:Name="InventoryidBox" Style="{StaticResource MaterialDesignComboBox}" Margin="10 0 0 0"/>
-            <TextBox x:Name="datevidachiBox" materialDesign:HintAssist.Hint="Дата выдачи" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10 0 0 0"/>
-            <TextBox x:Name="planedatevidachiBox" materialDesign:HintAssist.Hint="Запланированная дата возврата" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10 0 0 0"/>
-            <TextBox x:Name="realdatevidachiBbox" materialDesign:HintAssist.Hint="Реальная дата возврата" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10 0 0 10"/>
+            <ComboBox x:Name="ReadIdBox" Style="{StaticResource MaterialDesignComboBox}" materialDesign:HintAssist.Hint="Имя читателя" Margin="10"/>
+            <ComboBox x:Name="InventoryidBox" Style="{StaticResource MaterialDesignComboBox}" materialDesign:HintAssist.Hint="Название книги" Margin="10"/>
+            <DatePicker x:Name="datevidachiBox" materialDesign:HintAssist.Hint="Дата выдачи"  Margin="10"/>
+            <DatePicker x:Name="planedatevidachiBox" materialDesign:HintAssist.Hint="Запланированная дата возврата" Margin="10"/>
+            <DatePicker x:Name="realdatevidachiBbox" materialDesign:HintAssist.Hint="Реальная дата возврата" Margin="10"/>
             <Button Content="Сохранить" Margin="10 0 0 20" Click="Button_Click"/>
         </StackPanel>
     </Grid>

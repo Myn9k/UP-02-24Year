@@ -10,7 +10,7 @@ namespace _1_Libary
     {
         public int id { get; set; }
 
-        private string fio, adress, phone;
+        private string fio, adress, phone, login, pass;
         private int rootid;
         public string FIO
         {
@@ -27,6 +27,16 @@ namespace _1_Libary
             get { return phone; }
             set { phone = value; }
         }
+        public string Login
+        {
+            get { return login; }
+            set { login = value; }
+        }
+        public string Pass
+        {
+            get { return pass; }
+            set { pass = value; }
+        }
         public int Rootid
         {
             get { return rootid; }
@@ -34,12 +44,14 @@ namespace _1_Libary
         }
 
         public Reader() { }
-        public Reader(string fio, string adress, string phone, int rootid)
+        public Reader(string fio, string adress, string phone, int rootid, string login, string pass)
         {
             this.fio = fio;
             this.adress = adress;
             this.phone = phone;
             this.rootid = rootid;
+            this.login = login;
+            this.pass = pass;
         }
     }
 }

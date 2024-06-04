@@ -17,47 +17,65 @@ namespace _1_Libary
 {
     public partial class MainWindow : Window
     {
+        ApplicationContext db;
         public int Root_id { get; set; }
+        public int User_id { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            db = new ApplicationContext();
+        }
+        private void NewMain(int Root_id, int User_id)
+        {
+            Main main = new Main()
+            {
+                Root_ID = Root_id,
+                User_ID = User_id
+            };
+            main.GetRootIdUser(Root_id);
+            main.GetIdUser(User_id);
+            main.Show();
+            this.Close();
         }
 
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
-            Root_id = 1;
-            Main main = new Main()
-            {
-                Root_ID = Root_id,
-            };
-            main.GetRootIdUser(Root_id);
-            main.Show();
-            this.Close();
-        }
+            string login = TextBoxLogin.Text.Trim();
+            string pass = passbox.Password.Trim();
 
-        private void Button1_Auth_Click(object sender, RoutedEventArgs e)
-        {
-            Root_id = 2;
-            Main main = new Main()
-            {
-                Root_ID = Root_id,
-            };
-            main.GetRootIdUser(Root_id);
-            main.Show();
-            this.Close();
-        }
-    
+            List<Reader> readers = db.Readers.ToList();
 
-        private void Button2_Auth_Click(object sender, RoutedEventArgs e)
-        {
-            Root_id = 3;
-            Main main = new Main()
+            foreach (Reader reader in readers)
             {
-                Root_ID = Root_id,
-            };
-            main.GetRootIdUser(Root_id);
-            main.Show();
-            this.Close();
+                if (login != reader.Login)
+                {
+                    TextBoxLogin.ToolTip = "Такого Логина не существует";
+                    TextBoxLogin.Background = Brushes.DarkRed;
+                }
+                else if (pass != reader.Pass)
+                {
+                    passbox.ToolTip = "Такого Пароля не существует";
+                    passbox.Background = Brushes.DarkRed;
+                }
+                else
+                {
+                    TextBoxLogin.ToolTip = "";
+                    TextBoxLogin.Background = Brushes.Transparent;
+                    passbox.ToolTip = "";
+                    passbox.Background = Brushes.Transparent;
+
+                    Reader authReader = null;
+                    using (ApplicationContext db = new ApplicationContext())
+                    {
+                        authReader = db.Readers.Where(b => b.Login == login && b.Pass == pass).FirstOrDefault();
+                    }
+
+                    if (authReader != null)
+                    {
+                        NewMain(authReader.Rootid, authReader.id);
+                    }
+                }
+            }
         }
     }
 }

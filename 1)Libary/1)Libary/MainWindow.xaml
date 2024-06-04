@@ -10,32 +10,19 @@
     <Grid Background="{DynamicResource MaterialDesignPaper}" >
         <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="50" Color="Black" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="50" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="Выбери кто ты" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 0 0 20"/>
+                <TextBlock Text="Авторизация" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 0 0 20"/>
+                <TextBox x:Name="TextBoxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <PasswordBox x:Name="passbox" materialDesign:HintAssist.Hint="Введите пароль" materialDesign:TextFieldAssist.HasClearButton="True"
+                Style="{StaticResource MaterialDesignRevealPasswordBox}" Margin="0 0 0 20" />
                 <Grid>
                     <Button x:Name="AuthBTN" materialDesign:ButtonAssist.CornerRadius="20"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, 
-                    AncestorType=Window}}"  Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="Button_Auth_Click" Margin="0 0 0 20">
-                        <TextBlock Text="Читатель" />
-                    </Button>
-                </Grid>
-                <Grid>
-                    <Button x:Name="AuthBTN1" materialDesign:ButtonAssist.CornerRadius="20"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, 
-                    AncestorType=Window}}"  Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="Button1_Auth_Click" Margin="0 0 0 20">
-                        <TextBlock Text="Библиотекарь" />
-                    </Button>
-                </Grid>
-                <Grid>
-                    <Button x:Name="AuthBTN2" materialDesign:ButtonAssist.CornerRadius="20"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, 
-                    AncestorType=Window}}"  Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                    ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="Button2_Auth_Click" Margin="0 0 0 20">
-                        <TextBlock Text="Зав. Библиотекой" />
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, 
+                        AncestorType=Window}}"  Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        ToolTip="MaterialDesignRaisedDarkButton with Round Corners" Click="Button_Auth_Click">
+                        <TextBlock Text="Авторизоваться" />
                     </Button>
                 </Grid>
             </StackPanel>

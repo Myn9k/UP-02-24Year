@@ -9,6 +9,7 @@ namespace _1_Libary
         public DbSet<Book> Books { get; set; }
         public DbSet<Reader> Readers { get; set; }
         public DbSet<Register> Registers { get; set; }
+        public DbSet<Root> Roots { get; set; }
         public ApplicationContext(): base("name=DefaultConnection")
         {
         }

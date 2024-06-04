@@ -18,15 +18,17 @@
             </Style>
         </materialDesign:DrawerHost.Style>
         <materialDesign:DrawerHost.LeftDrawerContent>
-            <StackPanel Width="280" Background="Black">
+            <StackPanel Width="280" Background="{DynamicResource MaterialDesignPaper}">
                 <StackPanel Orientation="Horizontal">
                     <Button Foreground="White" Content="Back" Name="BtnBack" Width="112" HorizontalAlignment="Center" Click="BtnBack_click" Margin="0,0,10,10" FontSize="20"/>
                 </StackPanel>
                 <TextBlock Margin="4" HorizontalAlignment="Center" Text="Навигация" />
+                <TextBlock x:Name="LoginName" Margin="4" HorizontalAlignment="Center" Foreground="White" Text=""/>
                 <Button x:Name="Shop" Click="Shop_Click"  Margin="4" HorizontalAlignment="Center" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" CommandParameter="{x:Static Dock.Left}" Content="Посмотреть книги" Style="{StaticResource MaterialDesignFlatButton}" />
                 <Button x:Name="BibliotekarPanel" Click="BibliotekarPanel_Click" Margin="4" HorizontalAlignment="Center" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" Content="Посмотреть читателей" Style="{StaticResource MaterialDesignFlatButton}"  Visibility="Hidden"/>
                 <Button x:Name="AdminPanel" Click="AdminPanel_Click" Margin="4" HorizontalAlignment="Center" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" Content="Регистрация взятия книги" Style="{StaticResource MaterialDesignFlatButton}" Visibility="Hidden"/>
                 <Button x:Name="AdminBookPanel" Click="AdminBookPanel_Click" Margin="4" HorizontalAlignment="Center" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" Content="Изменение книг" Style="{StaticResource MaterialDesignFlatButton}" Visibility="Hidden"/>
+                <Button x:Name="AddReader" Click="AddReader_Click" Margin="4" HorizontalAlignment="Center" Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" Content="Добавить читателя" Style="{StaticResource MaterialDesignFlatButton}" Visibility="Hidden"/>
             </StackPanel>
         </materialDesign:DrawerHost.LeftDrawerContent>
         <Grid>

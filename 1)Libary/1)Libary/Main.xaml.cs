@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,6 +19,7 @@ namespace _1_Libary
     {
         ApplicationContext db;
         public int Root_ID { get; set; }
+        public int User_ID { get; set; }
         public Main()
         {
             InitializeComponent();
@@ -26,6 +28,13 @@ namespace _1_Libary
             DataContext = this;
 
         }
+
+        public void GetIdUser(int id)
+        {
+            Reader reader = db.Readers.Where(u => u.id == id).FirstOrDefault();
+            LoginName.Text = reader.FIO;
+        }
+
         public void GetRootIdUser(int Root_id)
         {
             if (Root_id == 3)
@@ -33,6 +42,7 @@ namespace _1_Libary
                 AdminPanel.Visibility = Visibility.Visible;
                 AdminBookPanel.Visibility = Visibility.Visible;
                 BibliotekarPanel.Visibility = Visibility.Visible;
+                AddReader.Visibility = Visibility.Visible;
             }
             else if (Root_id == 2)
             {
@@ -43,6 +53,7 @@ namespace _1_Libary
                 AdminPanel.Visibility = Visibility.Hidden;
                 AdminBookPanel.Visibility = Visibility.Hidden;
                 BibliotekarPanel.Visibility = Visibility.Hidden;
+                AddReader.Visibility = Visibility.Hidden;
             }
         }
 
@@ -81,6 +92,12 @@ namespace _1_Libary
         private void AdminBookPanel_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new BookAdminPage());
+        }
+
+        private void AddReader_Click(object sender, RoutedEventArgs e)
+        {
+            AddReader addReader = new AddReader();
+            addReader.ShowDialog();
         }
     }
 }

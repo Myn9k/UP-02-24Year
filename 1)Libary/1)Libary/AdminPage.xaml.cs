@@ -62,8 +62,8 @@ namespace _1_Libary
 
                 Register register = new Register
                 {
-                    Inventoryid = selectedReaderId,
-                    Readerid = selectedBookId,
+                    Inventoryid = selectedBookId,
+                    Readerid = selectedReaderId,
                     Datevidachi = datevidachi,
                     Planedatevidachi = planedatevidachi,
                     Realdatevidachi = realdatevidachi

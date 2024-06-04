@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:_1_Libary"
         mc:Ignorable="d"
         Title="EditBookPage" Height="450" Width="800"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="{DynamicResource MaterialDesignPaper}" Foreground="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

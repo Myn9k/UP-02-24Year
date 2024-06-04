@@ -36,9 +36,5 @@ namespace _1_Libary
         {
             UpdateReader();
         }
-        private void CheckActual_Checked(object sender, RoutedEventArgs e)
-        {
-            UpdateReader();
-        }
     }
 }
