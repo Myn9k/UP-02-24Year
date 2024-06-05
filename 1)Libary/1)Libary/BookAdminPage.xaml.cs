@@ -22,35 +22,21 @@ namespace _1_Libary
         public BookAdminPage()
         {
             InitializeComponent();
-            db = new ApplicationContext(); 
-            List<Book> book = db.Books.ToList();
-            UpdateBook();
-        }
-        private void UpdateBook()
-        {
-            List<Book> book = db.Books.ToList();
-
-
-            book = book.Where(p => p.Title.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
-
-            LViewBook.ItemsSource = book.ToList();
+            db = new ApplicationContext();
+            AllBooks.ItemsSource = db.Books.ToList();
+            
         }
 
-        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateBook();
-        }
         private void BtnAdd(object sender, RoutedEventArgs e)
         {
             AddBookPage addPage = new AddBookPage();
             addPage.ShowDialog();
         }
 
-        private void edit_click(object sender, RoutedEventArgs e)
+
+        private void Books_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Book selectedBook = (sender as Button).DataContext as Book;
-            EditBookPage editPage = new EditBookPage(selectedBook, db);
-            editPage.ShowDialog();
+            db.SaveChanges();
         }
     }
 }

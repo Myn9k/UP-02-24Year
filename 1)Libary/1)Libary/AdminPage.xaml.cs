@@ -15,12 +15,14 @@ namespace _1_Libary
         {
             InitializeComponent();
             db = new ApplicationContext();
+            //Выводит ФИО пользователя, но при выборе отправляет id 
             List<Reader> readers = db.Readers.ToList();
             ReadIdBox.ItemsSource = readers;
             ReadIdBox.DisplayMemberPath = "FIO";
             ReadIdBox.SelectedValuePath = "id";
             ReadIdBox.SelectedIndex = 0;
 
+            //Выводит название Книги, но при выборе отправляет id 
             List<Book> books = db.Books.ToList();
             InventoryidBox.ItemsSource = books;
             InventoryidBox.DisplayMemberPath = "Title";
@@ -28,8 +30,10 @@ namespace _1_Libary
             InventoryidBox.SelectedIndex = 0;
         }
 
+        //При клике добавляется событие взятия книги(её id) пользователем(его id)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //Первые 2 парсят текстовое значение "id" -> id
             int selectedReaderId = (int)ReadIdBox.SelectedValue;
             int selectedBookId = (int)InventoryidBox.SelectedValue;
             string datevidachi = datevidachiBox.Text.Trim();

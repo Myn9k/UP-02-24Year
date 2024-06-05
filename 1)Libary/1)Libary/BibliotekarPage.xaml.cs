@@ -24,6 +24,7 @@ namespace _1_Libary
             db = new ApplicationContext();
             UpdateReader();
         }
+        //Обновление списка читателей в XAML файле через БД
         private void UpdateReader()
         {
             List<Reader> readers = db.Readers.ToList();
@@ -31,7 +32,7 @@ namespace _1_Libary
 
             LViewReader.ItemsSource = readers.ToList();
         }
-
+        //Поиск читателей
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             UpdateReader();

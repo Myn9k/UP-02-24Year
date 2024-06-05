@@ -25,6 +25,7 @@ namespace _1_Libary
             InitializeComponent();
             db = new ApplicationContext();
         }
+        //Метод вызова основного окна
         private void NewMain(int Root_id, int User_id)
         {
             Main main = new Main()
@@ -37,7 +38,7 @@ namespace _1_Libary
             main.Show();
             this.Close();
         }
-
+        //Аунтификация
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
             string login = TextBoxLogin.Text.Trim();

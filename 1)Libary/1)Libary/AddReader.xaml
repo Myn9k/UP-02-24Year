@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_1_Libary"
         mc:Ignorable="d"
         Title="AddReader" Height="450" Width="800"        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-        Background="{DynamicResource MaterialDesignPaper}" Foreground="White">
+        Background="{DynamicResource MaterialDesignPaper}" TextElement.Foreground="{DynamicResource MaterialDesignBody}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

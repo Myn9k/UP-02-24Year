@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:_1_Libary"
         mc:Ignorable="d"
         Title="AddBookPage" Height="450" Width="800"        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Background="{DynamicResource MaterialDesignPaper}">
+        Background="{DynamicResource MaterialDesignPaper}" TextElement.Foreground="{DynamicResource MaterialDesignBody}">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -17,7 +18,8 @@
         <TextBox x:Name="TitleBox" Text="{Binding Title}" materialDesign:HintAssist.Hint="Название" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
         <TextBox x:Name="AuthorBox" Text="{Binding Author}" Grid.Row="1" materialDesign:HintAssist.Hint="Автор" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
         <TextBox x:Name="QuantyBox" Text="{Binding Quanty}" Grid.Row="2" materialDesign:HintAssist.Hint="Цена" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-        <Button Foreground="White" Content="Сохранить" Grid.Row="3" Name="BtnSave" Click="BtnSave_click" Width="Auto"/>
+        <Button Foreground="White" Click="SelectImage" Grid.Row="3" Content="Выбрать изображение"/>
+        <Button Foreground="White" Content="Сохранить" Grid.Row="4" Name="BtnSave" Click="BtnSave_click" Width="Auto"/>
     </Grid>
 </Window>
 

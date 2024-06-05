@@ -21,18 +21,21 @@ namespace _1_Libary
         {
             InitializeComponent();
             db = new ApplicationContext();
+            //Выводит наименование прав пользователя, но при выборе отправляет id 
             List<Root> roots = db.Roots.ToList();
             RootIdBox.ItemsSource = roots;
             RootIdBox.DisplayMemberPath = "Name";
             RootIdBox.SelectedValuePath = "id";
             RootIdBox.SelectedIndex = 0;
         }
+        //Сохранение пользователя
         private void BtnSave_click(object sender, RoutedEventArgs e)
         {
+            //первое переделывает "id" -> id   ТО есть строкове значение в интовое(целочисленное)
+            int selectedRootId = (int)RootIdBox.SelectedValue;
             string fio = FIOBox.Text.Trim();
             string adress = AdressBox.Text.Trim();
             string phone = PhoneBox.Text.Trim();
-            int selectedRootId = (int)RootIdBox.SelectedValue;
             string login = LoginBox.Text.Trim();
             string pass = PassBox.Text.Trim();
 
